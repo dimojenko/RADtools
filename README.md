@@ -20,3 +20,6 @@ downloading scanned test case data sheets. Once a series of data sheets have bee
 and emailed to the user, this script can be run to download those PDF files to the user's 
 Downloads folder. Then the user could use the Rename PDF GUI in this repo to properly name 
 the files. 
+
+Since this script connects to Microsoft Outlook, it will need to be run in a Microsoft shell, 
+such as Windows Powershell.
