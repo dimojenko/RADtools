@@ -23,3 +23,10 @@ the files.
 
 Since this script connects to Microsoft Outlook, it will need to be run in a Microsoft shell, 
 such as Windows Powershell.
+
+## Image Capture GUI
+This is a GUI intended for use with tests on the DOV test fixture. The GUI allows the user to 
+enter a scope name and trial number, select a test (either DOV or Color Accuracy), and enter a 
+distance if applicable. Then when the "Capture Images" button is pressed, images are captured 
+from the left and right eyes of the scope and saved with filenames according to the given 
+metadata. All images will be saved in the user's Camera Roll folder. 
