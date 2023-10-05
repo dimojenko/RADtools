@@ -27,15 +27,17 @@ such as Windows Powershell.
 ## Image Capture
 This module contains functions used in capturing images from connected cameras. The image 
 files are saved in the user's Camera Roll folder and a resized image is displayed in a pop-up 
-window when captured. 
+window when captured. There are also modules which can be imported or used as scripts to run 
+the DOV or IQTF image captures with a GUI.
 
 ## DOV Assistant
-This is a GUI intended for use with tests on the DOV test fixture. This GUI uses a widget for 
-capturing images and a toggled widget for moving a connected Zaber linear stage. The GUI allows 
-the user to enter a scope name and trial number, select a test (either DOV or Color Accuracy), 
-and enter a distance if applicable. Then when the "Capture Images" button is pressed, images 
-are captured from the left and right eyes of the scope and saved with filenames according to 
-the given metadata. All images will be saved in the user's Camera Roll folder. 
+This is a GUI intended for use with tests on the DOV test fixture. This GUI combines a widget 
+from the ImageCapture module for capturing images and a toggled widget for moving a connected 
+Zaber linear stage. The GUI allows the user to enter a scope name and trial number, select a 
+test (either DOV or Color Accuracy), and enter a distance if applicable. Then when the 
+"Capture Images" button is pressed, images are captured from the left and right eyes of the 
+scope and saved with filenames according to the given metadata. All images will be saved in 
+the user's Camera Roll folder. 
 
 The zaberControl module provides the widget for directing the connected Zaber linear stage. 
 To user inputs a COM port to connect to the device located there. Then the linear stage can 
