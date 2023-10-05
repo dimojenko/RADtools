@@ -27,7 +27,7 @@ such as Windows Powershell.
 ## Image Capture
 This module contains functions used in capturing images from connected cameras. The image 
 files are saved in the user's Camera Roll folder and a resized image is displayed in a pop-up 
-window when captured. There are also modules which can be imported or used as scripts to run 
+window when captured. There are also modules which can be imported or used as scripts to perform 
 the DOV or IQTF image captures with a GUI.
 
 ## DOV Assistant
