@@ -9,10 +9,14 @@ the target as necessary for the DOV tests.
 
 Author: Dimitri Mojsejenko
 """
+import os
+import sys
 import cv2
 import subprocess
 from tkinter import *
 from zaber.serial import AsciiSerial, AsciiDevice
+imageCapturePath = os.path.join(os.path.dirname(__file__), '..', 'imageCapture')
+sys.path.append(imageCapturePath)
 from imageCaptureDOV import *
 from zaberControl import *
 
