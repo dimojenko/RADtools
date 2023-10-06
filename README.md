@@ -46,4 +46,5 @@ To user inputs a COM port to connect to the device located there. Then the linea
 be moved with buttons for quickly moving to the limits of motion or moved by input distances 
 relative to the current position.
 
-If using as a python script (not the executable), it will need to be ran in a Microsoft shell.
+If using as a python script (not the executable), it will need to be ran in a Microsoft shell. 
+Also if using as a script, the ImageCapture module will be necessary.
