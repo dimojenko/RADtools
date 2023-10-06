@@ -21,7 +21,7 @@ and emailed to the user, this script can be run to download those PDF files to t
 Downloads folder. Then the user could use the Rename PDF GUI in this repo to properly name 
 the files. 
 
-Since this script connects to Microsoft Outlook, it will need to be run in a Microsoft shell, 
+Since this script connects to Microsoft Outlook, it will need to be ran in a Microsoft shell, 
 such as Windows Powershell.
 
 ## Image Capture
@@ -29,6 +29,8 @@ This module contains functions used in capturing images from connected cameras. 
 files are saved in the user's Camera Roll folder and a resized image is displayed in a pop-up 
 window when captured. There are also modules which can be imported or used as scripts to perform 
 the DOV or IQTF image captures with a GUI.
+
+If running as a script, use a Microsoft shell.
 
 ## DOV Assistant
 This is a GUI intended for use with tests on the DOV test fixture. This GUI combines a widget 
@@ -43,3 +45,5 @@ The zaberControl module provides the widget for directing the connected Zaber li
 To user inputs a COM port to connect to the device located there. Then the linear stage can 
 be moved with buttons for quickly moving to the limits of motion or moved by input distances 
 relative to the current position.
+
+If using as a python script (not the executable), it will need to be ran in a Microsoft shell.
