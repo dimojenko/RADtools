@@ -4,9 +4,11 @@
 This program is to be used with the IQTF tests to capture the required
 images and save them in the proper format. The files will be saved in 
 the user's Camera Roll folder.
+This must be run in a Windows shell.
 
 Author: Dimitri Mojsejenko
 """
+
 from tkinter import *
 from imageCapture import *
 
@@ -80,13 +82,13 @@ class imageCaptureIQTF(Frame):
         if run:
             name += "Run" + run + "_"
         msgText = msg_text.get()
-        for cam in range(1, 3):
-            if cam == 1:
+        for cam in range(0, 2):
+            if cam == 0:
                 rname = name + "right.jpg"
-                msgText += captureImage(cam, rname)
+                msgText += captureImage(cam, rname, webcam=False)
             else:
                 lname = name + "left.jpg"
-                msgText += captureImage(cam, lname)
+                msgText += captureImage(cam, lname, webcam=False)
         msg_text.set(msgText)
         # keep images displayed till any key press
         cv2.waitKey(0)
