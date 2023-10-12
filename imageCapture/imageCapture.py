@@ -50,9 +50,9 @@ def captureImage(camNum, fname, webcam=True):
     # get the path to the user's Camera Roll folder
     if webcam:
         user = subprocess.run(['cmd.exe', '/c', 'echo %USERNAME%'], stdout=subprocess.PIPE).stdout.decode('utf-8').strip()
-        cameraRoll = "C:\\Users\\" + user + "\\OneDrive - JNJ\\Pictures\\Camera Roll"
+        cameraRoll = "C:\\Users\\" + user + "\\OneDrive - JNJ\\Pictures\\Camera Roll\\"
     else:
-        cameraRoll = "C:\\Users\\User\\Pictures\\Camera Roll"
+        cameraRoll = "C:\\Users\\User\\Pictures\\Camera Roll\\"
     fpath = cameraRoll + fname
     cam = cv2.VideoCapture(camNum, cv2.CAP_DSHOW)
 
