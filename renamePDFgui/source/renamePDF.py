@@ -38,27 +38,30 @@ def extract_title(pdf_path):
         page_text = page.extract_text()
         testNum = ''
         try:
-            # grab the first line of the page text
-            line = page_text.split('\n')[1].strip()
-            #testCode = testCode.split(':')[1].strip()
-            words = line.split(' ')
-            for word in words:
-                word = word.strip(',')
-                try:
-                    if word[0:7] == "APO-TC-":
-                        testNum = word[7::]
-                        print("Test code extracted from PDF: ", word)
-                except:
-                    print("Error: could not extract test code from PDF.")
-        except:
-            print("Error: could not extract test code from PDF.")
-        
+            # grab the first couple lines of the page text where test code should be
+            lines = page_text.split('\n')
+            firstLines = lines[0:2]
+            for line in firstLines:
+                words = line.split(' ')
+                for word in words:
+                    word = word.strip(',')
+                    try:
+                        if word[0:7] == "APO-TC-":
+                            testNum = word[7::]
+                    except Exception:
+                        pass
+        except Exception:
+            pass
+
         # Find corresponding title for test code
         title = ''
         if testNum:
+            print("Test code extracted from PDF: APO-TC-", testNum)
             for line in titles:
                 if testNum in line:
                     title = line.split(';')[1].strip()
+        else:
+            print("Error: could not extract test code from PDF.")
         return title
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
