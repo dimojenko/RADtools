@@ -10,3 +10,5 @@
 1199; Force to Connect - Disconnect Electrical
 1757; Button Actuation Force
 129; Illumination Flux
+1039; ILAR
+685; Unlatching Force

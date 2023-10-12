@@ -68,7 +68,17 @@ def _chooseFile(tkEntry):
 
 # create Tkinter GUI
 root = Tk()
-root.geometry('600x250')
+# get screen width and height
+#  - 1280x720 for laptop
+ws = root.winfo_screenwidth()
+hs = root.winfo_screenheight()
+# set GUI window width and height
+w = 600
+h = 250
+# set GUI window location to center of screen
+x = (ws/2) - (w/2)
+y = (hs/2) - (h/2)
+root.geometry('%dx%d+%d+%d' % (w, h, x, y)) # (<width>x<height>+<x>+<y>)
 root.title("PDF Renamer GUI")
 
 # first row

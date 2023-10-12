@@ -36,14 +36,21 @@ def extract_title(pdf_path):
         
         # Extract test code from page
         page_text = page.extract_text()
+        testNum = ''
         try:
             # grab the first line of the page text
-            testCode = page_text.split('\n', 1)[0].strip()
-            testCode = testCode.split(':')[1].strip()
-            testNum = testCode.split('-')[2]
-            print("Test code extracted from PDF: ", testCode)
+            line = page_text.split('\n')[1].strip()
+            #testCode = testCode.split(':')[1].strip()
+            words = line.split(' ')
+            for word in words:
+                word = word.strip(',')
+                try:
+                    if word[0:7] == "APO-TC-":
+                        testNum = word[7::]
+                        print("Test code extracted from PDF: ", word)
+                except:
+                    print("Error: could not extract test code from PDF.")
         except:
-            testNum = ''
             print("Error: could not extract test code from PDF.")
         
         # Find corresponding title for test code
@@ -75,7 +82,7 @@ def renamePDF(pdf_path, title, lifeNum=''):
     pathPrefix = '/'.join(pathSplit)
     newFilePath = pathPrefix + '/' + lifeNum + title + '.pdf'
     print("Renamed file: ", newFilePath)
-    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     os.rename(pdf_path, newFilePath)
     
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
