@@ -3,7 +3,7 @@
 
 This program is to be used with the DOV tests to capture the required
 images and save them in the proper format. The files will be saved in 
-the user's Camera Roll folder. It uses the Windows Camera App to take 
+the user's Camera Roll folder. It connects to an attached camera to take 
 images and allows the user to connect to a Zaber linear stage to move 
 the target as necessary for the DOV tests. 
 
