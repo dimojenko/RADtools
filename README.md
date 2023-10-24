@@ -26,9 +26,15 @@ such as Windows Powershell.
 
 ## Image Capture
 This module contains functions used in capturing images from connected cameras. The image 
-files are saved in the user's Camera Roll folder and a resized image is displayed in a pop-up 
-window when captured. There are also modules which can be imported or used as scripts to perform 
-the DOV or IQTF image captures with a GUI.
+files are saved in the user's Camera Roll folder with the proper naming convention, and a resized 
+image is displayed in a pop-up window when captured. There are also modules which can be imported
+or used as scripts to perform the DOV or IQTF image captures with a GUI.
+
+There is also a Windows executable for the IQTF image capture GUI, found in the IQTF folder. This 
+is similar to the DOV Assistant in this repo, except there's no Zaber control module. Images can be 
+captured and saved in the proper format for the Uniformity and Field of View tests. To function as 
+intended, this GUI will need to be ran on a Windows PC with no webcam, such that the scope has the 
+only attached cameras. 
 
 If running as a script, use a Microsoft shell.
 
