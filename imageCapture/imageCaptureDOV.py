@@ -110,7 +110,7 @@ class imageCaptureDOV(Frame):
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~     
     def capImageDOV(self, scope, dist, trial, msg_text):
         """Captures images for Direction of View test."""
-        # 2 images total: 35mm or 50mm for left/
+        # 2 images total: 35mm or 50mm for left/right
         name = ''
         if scope:
             name = scope + "_"

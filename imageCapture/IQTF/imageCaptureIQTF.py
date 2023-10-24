@@ -43,6 +43,17 @@ class imageCaptureIQTF(Frame):
         lab3.pack(side=LEFT, padx=3)
         testChoice.pack(side=RIGHT)
         row3.pack()
+        
+        # Save Image Type
+        row4 = Frame(self)
+        lab4 = Label(row4, text="Save image as: ")
+        filetypes = ["jpg", "png (no compression)", "png (full compression)"]
+        chosenFtype = StringVar(self)
+        chosenFtype.set("jpg")
+        fTypeChoice = OptionMenu(row4, chosenFtype, *filetypes)
+        lab4.pack(side=LEFT, padx=3)
+        fTypeChoice.pack(side=RIGHT)
+        row4.pack()
 
         # Message
         messageText = StringVar(self)
@@ -52,7 +63,7 @@ class imageCaptureIQTF(Frame):
         # Capture Images
         row5 = Frame(self)
         capBut = Button(row5, text="Capture images", height=2, width=13)
-        capBut.bind('<Button>', lambda capButHandler: self.capImageIQTF(chosenTest.get(), scope.get(), run.get(), messageText))
+        capBut.bind('<Button>', lambda capButHandler: self.capImageIQTF(chosenTest.get(), scope.get(), run.get(), chosenFtype.get(), messageText))
         capBut.pack()
         row5.pack(side=BOTTOM, padx=2, pady=4)
 
@@ -69,7 +80,7 @@ class imageCaptureIQTF(Frame):
         msg_text.set(msgText)
 
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    def capImageIQTF(self, test, scope, run, msg_text):
+    def capImageIQTF(self, test, scope, run, ftype, msg_text):
         """Captures images for selected test."""
         # 2 images total: left/right
         self.checkVars(scope, run, msg_text)
@@ -82,13 +93,25 @@ class imageCaptureIQTF(Frame):
         if run:
             name += "Run" + run + "_"
         msgText = msg_text.get()
+        
+        match ftype:
+            case "png (no compression)":
+                fileExt = "png"
+                fcomp = [int(cv2.IMWRITE_PNG_COMPRESSION),0]
+            case "png (full compression)":
+                fileExt = "png"
+                fcomp = [int(cv2.IMWRITE_PNG_COMPRESSION),9]
+            case _:
+                fileExt = "jpg"
+                fcomp = [cv2.IMWRITE_JPEG_QUALITY, 90]
+        
         for cam in range(0, 2):
             if cam == 0:
-                rname = name + "right.jpg"
-                msgText += captureImage(cam, rname, webcam=False)
+                rname = name + "right." + fileExt
+                msgText += captureImage(cam, rname, fcomp, webcam=True)
             else:
-                lname = name + "left.jpg"
-                msgText += captureImage(cam, lname, webcam=False)
+                lname = name + "left." + fileExt
+                msgText += captureImage(cam, lname, fcomp, webcam=True)
         msg_text.set(msgText)
         # keep images displayed till any key press
         cv2.waitKey(0)
@@ -106,7 +129,7 @@ if __name__ == "__main__":
     hs = root.winfo_screenheight()
     # set GUI window width and height
     w = 350
-    h = 220
+    h = 230
     # set GUI window location to center of screen
     x = (ws/2) - (w/2)
     y = (hs/2) - (h/2)

@@ -29,7 +29,7 @@ def resizeImage(image, width=None, height=None):
     return cv2.resize(image, dim, interpolation=cv2.INTER_AREA)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-def captureImage(camNum, fname, webcam=True):
+def captureImage(camNum, fname, fcomp=[cv2.IMWRITE_JPEG_QUALITY, 90], webcam=True):
     """Captures an image from a selected camera.
     
     Parameters
@@ -38,13 +38,15 @@ def captureImage(camNum, fname, webcam=True):
         The index of the camera; starts at 0.
     fname : str
         The filename to save the image as.
+    fcomp : list, optional
+        The image compression settings.
     webcam: bool, optional
         True when webcam is connected.
 
     Returns
     ~~~~~~~
     msgText : str
-    The notification message text.
+        The notification message text.
 
     """
     # get the path to the user's Camera Roll folder
@@ -54,6 +56,17 @@ def captureImage(camNum, fname, webcam=True):
     else:
         cameraRoll = "C:\\Users\\User\\Pictures\\Camera Roll\\"
     fpath = cameraRoll + fname
+    
+    # image window placement (laptop)
+    x_left = 230
+    x_right = 1190
+    y = 220
+    if webcam: # PC; webcam is camNum 0
+        camNum = camNum + 1
+        x_left = 90
+        x_right = 690
+    
+    # capture image
     cam = cv2.VideoCapture(camNum, cv2.CAP_DSHOW)
 
     # resize from default 640x480 to 1920x1080
@@ -62,14 +75,14 @@ def captureImage(camNum, fname, webcam=True):
     result, image = cam.read()
     msgText = ''
     if result:
-        # check if file exists
+        # check if file already exists
         resp = 1
         if isfile(fpath):
             fileMsg = "File already exists at: \n"+fpath+"\n\nOkay to overwrite?"
             resp = ctypes.windll.user32.MessageBoxW(0, fileMsg, "File Check", 1)
         if not resp == 2: # 2 = cancel
             # default JPG quality of Windows Camera App is around 90
-            cv2.imwrite(fpath, image, [cv2.IMWRITE_JPEG_QUALITY, 90])
+            cv2.imwrite(fpath, image, fcomp)
             
             # resize displayed image
             imageResized = resizeImage(image, width=500) # width=500 height=281
@@ -79,14 +92,7 @@ def captureImage(camNum, fname, webcam=True):
             #    - laptop screen size: width=1280 height=720
             #    - PC screen size: width=1920 height=1080
             cv2.namedWindow(fname)
-            # image window sizing (laptop)
-            x_left = 90
-            x_right = 690
-            y = 220
-            if not webcam: # PC
-                camNum = camNum + 1
-                x_left = 230
-                x_right = 1190
+
             if camNum == 2: # left eye
                 cv2.moveWindow(fname, x_left, y)
             else: # right eye
