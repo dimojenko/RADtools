@@ -108,10 +108,10 @@ class imageCaptureIQTF(Frame):
         for cam in range(0, 2):
             if cam == 0:
                 rname = name + "right." + fileExt
-                msgText += captureImage(cam, rname, fcomp, webcam=True)
+                msgText += captureImage(cam, rname, fcomp, webcam=False)
             else:
                 lname = name + "left." + fileExt
-                msgText += captureImage(cam, lname, fcomp, webcam=True)
+                msgText += captureImage(cam, lname, fcomp, webcam=False)
         msg_text.set(msgText)
         # keep images displayed till any key press
         cv2.waitKey(0)
