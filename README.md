@@ -54,3 +54,10 @@ relative to the current position.
 
 If using as a python script (not the executable), it will need to be ran in a Microsoft shell. 
 Also if using as a script, the ImageCapture module will be necessary.
+
+## IQTF Data Extractor
+This is a script for extracting data from IQTF Uniformity and Field of View test results. It 
+takes in image files which contain graphs and various test data and extracts the data relevant 
+to that particular test's analysis. The results will then be printed to a shell. The 
+data extraction is performed through an open source optical character recognition Python 
+module. This script can also be used as a GUI if run with no arguments.
