@@ -38,6 +38,14 @@ only attached cameras.
 
 If running as a script, use a Microsoft shell.
 
+## IQTF Data Extractor
+This is a script for extracting data from IQTF Uniformity and Field of View test results. It 
+takes in image files which contain graphs and various test data and extracts the data relevant 
+to that particular test's analysis. The results will then be printed to a shell. The 
+data extraction is performed through an open source optical character recognition Python 
+module. This script can also be used as a GUI if run with no arguments, and there is also a 
+standalone executable version.
+
 ## DOV Assistant
 This is a GUI intended for use with tests on the DOV test fixture. This GUI combines a widget 
 from the ImageCapture module for capturing images and a toggled widget for moving a connected 
@@ -55,10 +63,10 @@ relative to the current position.
 If using as a python script (not the executable), it will need to be ran in a Microsoft shell. 
 Also if using as a script, the ImageCapture module will be necessary.
 
-## IQTF Data Extractor
-This is a script for extracting data from IQTF Uniformity and Field of View test results. It 
-takes in image files which contain graphs and various test data and extracts the data relevant 
-to that particular test's analysis. The results will then be printed to a shell. The 
-data extraction is performed through an open source optical character recognition Python 
-module. This script can also be used as a GUI if run with no arguments, and there is also a 
-standalone executable version.
+## DOV Analyzer
+This is a GUI for assisting with the analysis of data from the DOV test results. This GUI allows
+one to select a folder of DOV analysis CSVs, which are output from running the 4 captured DOV 
+images through the Imatest analysis software. The code will then parse the CSVs for the 
+relevant data, insert the data into the DOV calculator Excel document, and save a copy of the 
+result. The Python script can be run with one argument being a folder of DOV analysis CSVs, and 
+can also be used as a GUI if run with no arguments. There is also an executable version.
