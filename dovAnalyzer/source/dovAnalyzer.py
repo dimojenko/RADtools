@@ -2,7 +2,7 @@
 """ DOV Analyzer
 
 This script parses DOV analysis CSVs output from Imatest for relevant data, 
-inserts the data into a copy of the DOV analysis Excel doc, and saves the resulting file.
+inserts the data into a copy of the DOV calculation Excel doc, and saves the resulting file.
 
 * Requires that scope_dov_calc.xlsx exist in the same directory.
 
