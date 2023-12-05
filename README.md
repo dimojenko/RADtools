@@ -31,7 +31,7 @@ and another for the GUI version.
 This module contains functions used in capturing images from connected cameras. The image 
 files are saved in the user's Camera Roll folder with the proper naming convention, and a resized 
 image is displayed in a pop-up window when captured. This module is used in the IQTF Image 
-Capture module as well as the Image Capture DOV within the DOV Assistant module in this repo.
+Capture module as well as the DOV Image Capture within the DOV Assistant module in this repo.
 
 ___
 ## IQTF
