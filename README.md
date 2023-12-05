@@ -1,8 +1,8 @@
 # RADtools
 various tools for use in the RAD Lab
 
-## Utilities
 ___
+## Utilities
 
 ### Rename PDF GUI
 This is a Windows GUI for renaming scans of test case data sheets with the accepted naming scheme.
@@ -41,8 +41,8 @@ only attached cameras.
 
 If running as a script, use a Microsoft shell.
 
-## IQTF
 ___
+## IQTF
 
 ### IQTF Data Extractor
 This is a script for extracting data from IQTF Uniformity and Field of View test results. It 
@@ -52,8 +52,8 @@ data extraction is performed through an open source optical character recognitio
 module. This script can also be used as a GUI if run with no arguments, and there is also a 
 standalone executable version.
 
-## DOV
 ___
+## DOV
 
 ### DOV Assistant
 This is a GUI intended for use with tests on the DOV test fixture. This GUI combines a widget 
